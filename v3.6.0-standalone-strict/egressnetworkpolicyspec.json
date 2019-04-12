@@ -1,51 +1,52 @@
 {
-  "$schema": "http://json-schema.org/schema#", 
+  "description": "EgressNetworkPolicySpec provides a list of policies on outgoing network traffic",
   "required": [
     "egress"
-  ], 
-  "type": "object", 
-  "description": "EgressNetworkPolicySpec provides a list of policies on outgoing network traffic", 
+  ],
   "properties": {
     "egress": {
+      "description": "egress contains the list of egress policy rules",
+      "type": [
+        "array",
+        "null"
+      ],
       "items": {
-        "additionalProperties": false, 
+        "description": "EgressNetworkPolicyRule contains a single egress network policy rule",
         "required": [
-          "type", 
+          "type",
           "to"
-        ], 
-        "description": "EgressNetworkPolicyRule contains a single egress network policy rule", 
+        ],
         "properties": {
           "to": {
-            "additionalProperties": false, 
-            "description": "EgressNetworkPolicyPeer specifies a target to apply egress network policy to", 
+            "description": "EgressNetworkPolicyPeer specifies a target to apply egress network policy to",
             "properties": {
               "cidrSelector": {
+                "description": "cidrSelector is the CIDR range to allow/deny traffic to. If this is set, dnsName must be unset",
                 "type": [
-                  "string", 
+                  "string",
                   "null"
-                ], 
-                "description": "cidrSelector is the CIDR range to allow/deny traffic to. If this is set, dnsName must be unset"
-              }, 
+                ]
+              },
               "dnsName": {
+                "description": "dnsName is the domain name to allow/deny traffic to. If this is set, cidrSelector must be unset",
                 "type": [
-                  "string", 
+                  "string",
                   "null"
-                ], 
-                "description": "dnsName is the domain name to allow/deny traffic to. If this is set, cidrSelector must be unset"
+                ]
               }
-            }
-          }, 
+            },
+            "additionalProperties": false
+          },
           "type": {
-            "type": "string", 
-            "description": "type marks this as an \"Allow\" or \"Deny\" rule"
+            "description": "type marks this as an \"Allow\" or \"Deny\" rule",
+            "type": "string"
           }
-        }
-      }, 
-      "type": [
-        "array", 
-        "null"
-      ], 
-      "description": "egress contains the list of egress policy rules"
+        },
+        "additionalProperties": false
+      }
     }
-  }
+  },
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
 }

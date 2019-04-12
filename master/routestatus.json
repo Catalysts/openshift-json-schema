@@ -1,20 +1,20 @@
 {
-  "$schema": "http://json-schema.org/schema#", 
+  "description": "RouteStatus provides relevant info about the status of a route, including which routers acknowledge it.",
   "required": [
     "ingress"
-  ], 
-  "type": "object", 
-  "description": "RouteStatus provides relevant info about the status of a route, including which routers acknowledge it.", 
+  ],
   "properties": {
     "ingress": {
-      "items": {
-        "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.route.apis.route.v1.RouteIngress"
-      }, 
+      "description": "ingress describes the places where the route may be exposed. The list of ingress points may contain duplicate Host or RouterName values. Routes are considered live once they are `Ready`",
       "type": [
-        "array", 
+        "array",
         "null"
-      ], 
-      "description": "ingress describes the places where the route may be exposed. The list of ingress points may contain duplicate Host or RouterName values. Routes are considered live once they are `Ready`"
+      ],
+      "items": {
+        "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.api.route.v1.RouteIngress"
+      }
     }
-  }
+  },
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
 }

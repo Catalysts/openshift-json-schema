@@ -1,49 +1,49 @@
 {
-  "$schema": "http://json-schema.org/schema#", 
+  "description": "TagEventCondition contains condition information for a tag event.",
   "required": [
-    "type", 
-    "status", 
+    "type",
+    "status",
     "generation"
-  ], 
-  "type": "object", 
-  "description": "TagEventCondition contains condition information for a tag event.", 
+  ],
   "properties": {
-    "status": {
-      "type": [
-        "string", 
-        "null"
-      ], 
-      "description": "Status of the condition, one of True, False, Unknown."
-    }, 
     "generation": {
-      "type": "integer", 
-      "description": "Generation is the spec tag generation that this status corresponds to", 
+      "description": "Generation is the spec tag generation that this status corresponds to",
+      "type": "integer",
       "format": "int64"
-    }, 
+    },
     "lastTransitionTime": {
-      "description": "LastTransitionTIme is the time the condition transitioned from one status to another.", 
+      "description": "LastTransitionTIme is the time the condition transitioned from one status to another.",
       "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time"
-    }, 
-    "reason": {
-      "type": [
-        "string", 
-        "null"
-      ], 
-      "description": "Reason is a brief machine readable explanation for the condition's last transition."
-    }, 
+    },
     "message": {
+      "description": "Message is a human readable description of the details about last transition, complementing reason.",
       "type": [
-        "string", 
+        "string",
         "null"
-      ], 
-      "description": "Message is a human readable description of the details about last transition, complementing reason."
-    }, 
+      ]
+    },
+    "reason": {
+      "description": "Reason is a brief machine readable explanation for the condition's last transition.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "status": {
+      "description": "Status of the condition, one of True, False, Unknown.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
     "type": {
+      "description": "Type of tag event condition, currently only ImportSuccess",
       "type": [
-        "string", 
+        "string",
         "null"
-      ], 
-      "description": "Type of tag event condition, currently only ImportSuccess"
+      ]
     }
-  }
+  },
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
 }

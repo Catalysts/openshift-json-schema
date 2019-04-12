@@ -1,37 +1,37 @@
 {
-  "$schema": "http://json-schema.org/schema#", 
+  "description": "EgressNetworkPolicyRule contains a single egress network policy rule",
   "required": [
-    "type", 
+    "type",
     "to"
-  ], 
-  "type": "object", 
-  "description": "EgressNetworkPolicyRule contains a single egress network policy rule", 
+  ],
   "properties": {
     "to": {
-      "description": "EgressNetworkPolicyPeer specifies a target to apply egress network policy to", 
+      "description": "EgressNetworkPolicyPeer specifies a target to apply egress network policy to",
       "properties": {
         "cidrSelector": {
+          "description": "cidrSelector is the CIDR range to allow/deny traffic to. If this is set, dnsName must be unset",
           "type": [
-            "string", 
+            "string",
             "null"
-          ], 
-          "description": "cidrSelector is the CIDR range to allow/deny traffic to. If this is set, dnsName must be unset"
-        }, 
+          ]
+        },
         "dnsName": {
+          "description": "dnsName is the domain name to allow/deny traffic to. If this is set, cidrSelector must be unset",
           "type": [
-            "string", 
+            "string",
             "null"
-          ], 
-          "description": "dnsName is the domain name to allow/deny traffic to. If this is set, cidrSelector must be unset"
+          ]
         }
       }
-    }, 
+    },
     "type": {
+      "description": "type marks this as an \"Allow\" or \"Deny\" rule",
       "type": [
-        "string", 
+        "string",
         "null"
-      ], 
-      "description": "type marks this as an \"Allow\" or \"Deny\" rule"
+      ]
     }
-  }
+  },
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
 }

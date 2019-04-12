@@ -1,50 +1,66 @@
 {
-  "$schema": "http://json-schema.org/schema#", 
+  "description": "specification of a horizontal pod autoscaler.",
   "required": [
-    "scaleTargetRef", 
+    "scaleRef",
     "maxReplicas"
-  ], 
-  "type": "object", 
-  "description": "specification of a horizontal pod autoscaler.", 
+  ],
   "properties": {
-    "minReplicas": {
-      "type": "integer", 
-      "description": "lower limit for the number of pods that can be set by the autoscaler, default 1.", 
-      "format": "int32"
-    }, 
-    "scaleTargetRef": {
+    "cpuUtilization": {
       "required": [
-        "kind", 
-        "name"
-      ], 
-      "description": "CrossVersionObjectReference contains enough information to let you identify the referred resource.", 
+        "targetPercentage"
+      ],
       "properties": {
-        "kind": {
-          "type": "string", 
-          "description": "Kind of the referent; More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds\""
-        }, 
-        "name": {
-          "type": "string", 
-          "description": "Name of the referent; More info: http://kubernetes.io/docs/user-guide/identifiers#names"
-        }, 
-        "apiVersion": {
-          "type": [
-            "string", 
-            "null"
-          ], 
-          "description": "API version of the referent"
+        "targetPercentage": {
+          "description": "fraction of the requested CPU that should be utilized/used, e.g. 70 means that 70% of the requested CPU should be in use.",
+          "type": "integer",
+          "format": "int32"
         }
       }
-    }, 
-    "targetCPUUtilizationPercentage": {
-      "type": "integer", 
-      "description": "target average CPU utilization (represented as a percentage of requested CPU) over all the pods; if not specified the default autoscaling policy will be used.", 
-      "format": "int32"
-    }, 
+    },
     "maxReplicas": {
-      "type": "integer", 
-      "description": "upper limit for the number of pods that can be set by the autoscaler; cannot be smaller than MinReplicas.", 
+      "description": "upper limit for the number of pods that can be set by the autoscaler; cannot be smaller than MinReplicas.",
+      "type": "integer",
       "format": "int32"
+    },
+    "minReplicas": {
+      "description": "lower limit for the number of pods that can be set by the autoscaler, default 1.",
+      "type": "integer",
+      "format": "int32"
+    },
+    "scaleRef": {
+      "description": "SubresourceReference contains enough information to let you inspect or modify the referred subresource.",
+      "properties": {
+        "apiVersion": {
+          "description": "API version of the referent",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "kind": {
+          "description": "Kind of the referent; More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "name": {
+          "description": "Name of the referent; More info: http://kubernetes.io/docs/user-guide/identifiers#names",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "subresource": {
+          "description": "Subresource name of the referent",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
     }
-  }
+  },
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
 }

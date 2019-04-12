@@ -1,49 +1,49 @@
 {
-  "$schema": "http://json-schema.org/schema#", 
+  "description": "ContainerStateTerminated is a terminated state of a container.",
   "required": [
     "exitCode"
-  ], 
-  "type": "object", 
-  "description": "ContainerStateTerminated is a terminated state of a container.", 
+  ],
   "properties": {
     "containerID": {
+      "description": "Container's ID in the format 'docker://<container_id>'",
       "type": [
-        "string", 
+        "string",
         "null"
-      ], 
-      "description": "Container's ID in the format 'docker://<container_id>'"
-    }, 
-    "signal": {
-      "type": "integer", 
-      "description": "Signal from the last termination of the container", 
-      "format": "int32"
-    }, 
-    "reason": {
-      "type": [
-        "string", 
-        "null"
-      ], 
-      "description": "(brief) reason from the last termination of the container"
-    }, 
-    "finishedAt": {
-      "description": "Time at which the container last terminated", 
-      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time"
-    }, 
-    "startedAt": {
-      "description": "Time at which previous execution of the container started", 
-      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time"
-    }, 
-    "message": {
-      "type": [
-        "string", 
-        "null"
-      ], 
-      "description": "Message regarding the last termination of the container"
-    }, 
+      ]
+    },
     "exitCode": {
-      "type": "integer", 
-      "description": "Exit status from the last termination of the container", 
+      "description": "Exit status from the last termination of the container",
+      "type": "integer",
       "format": "int32"
+    },
+    "finishedAt": {
+      "description": "Time at which the container last terminated",
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time"
+    },
+    "message": {
+      "description": "Message regarding the last termination of the container",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "reason": {
+      "description": "(brief) reason from the last termination of the container",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "signal": {
+      "description": "Signal from the last termination of the container",
+      "type": "integer",
+      "format": "int32"
+    },
+    "startedAt": {
+      "description": "Time at which previous execution of the container started",
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time"
     }
-  }
+  },
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
 }

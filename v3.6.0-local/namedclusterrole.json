@@ -1,22 +1,22 @@
 {
-  "$schema": "http://json-schema.org/schema#", 
+  "description": "NamedClusterRole relates a name with a cluster role",
   "required": [
-    "name", 
+    "name",
     "role"
-  ], 
-  "type": "object", 
-  "description": "NamedClusterRole relates a name with a cluster role", 
+  ],
   "properties": {
-    "role": {
-      "description": "Role is the cluster role being named", 
-      "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.authorization.apis.authorization.v1.ClusterRole"
-    }, 
     "name": {
+      "description": "Name is the name of the cluster role",
       "type": [
-        "string", 
+        "string",
         "null"
-      ], 
-      "description": "Name is the name of the cluster role"
+      ]
+    },
+    "role": {
+      "description": "Role is the cluster role being named",
+      "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.authorization.apis.authorization.v1.ClusterRole"
     }
-  }
+  },
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
 }

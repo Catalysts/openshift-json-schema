@@ -1,37 +1,37 @@
 {
-  "$schema": "http://json-schema.org/schema#", 
-  "type": "object", 
-  "description": "CustomDeploymentStrategyParams are the input to the Custom deployment strategy.", 
+  "description": "CustomDeploymentStrategyParams are the input to the Custom deployment strategy.",
   "properties": {
-    "environment": {
-      "items": {
-        "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v3.6.0/_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.EnvVar"
-      }, 
-      "type": [
-        "array", 
-        "null"
-      ], 
-      "description": "Environment holds the environment which will be given to the container for Image."
-    }, 
-    "image": {
-      "type": [
-        "string", 
-        "null"
-      ], 
-      "description": "Image specifies a Docker image which can carry out a deployment."
-    }, 
     "command": {
+      "description": "Command is optional and overrides CMD in the container Image.",
+      "type": [
+        "array",
+        "null"
+      ],
       "items": {
         "type": [
-          "string", 
+          "string",
           "null"
         ]
-      }, 
+      }
+    },
+    "environment": {
+      "description": "Environment holds the environment which will be given to the container for Image.",
       "type": [
-        "array", 
+        "array",
         "null"
-      ], 
-      "description": "Command is optional and overrides CMD in the container Image."
+      ],
+      "items": {
+        "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v3.6.0/_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.EnvVar"
+      }
+    },
+    "image": {
+      "description": "Image specifies a Docker image which can carry out a deployment.",
+      "type": [
+        "string",
+        "null"
+      ]
     }
-  }
+  },
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
 }

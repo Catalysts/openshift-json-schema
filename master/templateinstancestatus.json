@@ -1,27 +1,27 @@
 {
-  "$schema": "http://json-schema.org/schema#", 
-  "type": "object", 
-  "description": "TemplateInstanceStatus describes the current state of a TemplateInstance.", 
+  "description": "TemplateInstanceStatus describes the current state of a TemplateInstance.",
   "properties": {
-    "objects": {
-      "items": {
-        "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.template.apis.template.v1.TemplateInstanceObject"
-      }, 
-      "type": [
-        "array", 
-        "null"
-      ], 
-      "description": "Objects references the objects created by the TemplateInstance."
-    }, 
     "conditions": {
-      "items": {
-        "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.template.apis.template.v1.TemplateInstanceCondition"
-      }, 
+      "description": "conditions represent the latest available observations of a TemplateInstance's current state.",
       "type": [
-        "array", 
+        "array",
         "null"
-      ], 
-      "description": "conditions represent the latest available observations of a TemplateInstance's current state."
+      ],
+      "items": {
+        "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.api.template.v1.TemplateInstanceCondition"
+      }
+    },
+    "objects": {
+      "description": "Objects references the objects created by the TemplateInstance.",
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.api.template.v1.TemplateInstanceObject"
+      }
     }
-  }
+  },
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
 }

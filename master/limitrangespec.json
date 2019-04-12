@@ -1,20 +1,20 @@
 {
-  "$schema": "http://json-schema.org/schema#", 
+  "description": "LimitRangeSpec defines a min/max usage limit for resources that match on kind.",
   "required": [
     "limits"
-  ], 
-  "type": "object", 
-  "description": "LimitRangeSpec defines a min/max usage limit for resources that match on kind.", 
+  ],
   "properties": {
     "limits": {
-      "items": {
-        "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.LimitRangeItem"
-      }, 
+      "description": "Limits is the list of LimitRangeItem objects that are enforced.",
       "type": [
-        "array", 
+        "array",
         "null"
-      ], 
-      "description": "Limits is the list of LimitRangeItem objects that are enforced."
+      ],
+      "items": {
+        "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.core.v1.LimitRangeItem"
+      }
     }
-  }
+  },
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
 }

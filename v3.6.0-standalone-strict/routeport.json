@@ -1,23 +1,24 @@
 {
-  "$schema": "http://json-schema.org/schema#", 
+  "description": "RoutePort defines a port mapping from a router to an endpoint in the service endpoints.",
   "required": [
     "targetPort"
-  ], 
-  "type": "object", 
-  "description": "RoutePort defines a port mapping from a router to an endpoint in the service endpoints.", 
+  ],
   "properties": {
     "targetPort": {
       "oneOf": [
         {
           "type": [
-            "string", 
+            "string",
             "null"
           ]
-        }, 
+        },
         {
           "type": "integer"
         }
       ]
     }
-  }
+  },
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
 }

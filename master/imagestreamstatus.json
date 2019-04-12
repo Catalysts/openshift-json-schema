@@ -1,34 +1,36 @@
 {
-  "$schema": "http://json-schema.org/schema#", 
+  "description": "ImageStreamStatus contains information about the state of this image stream.",
   "required": [
     "dockerImageRepository"
-  ], 
-  "type": "object", 
-  "description": "ImageStreamStatus contains information about the state of this image stream.", 
+  ],
   "properties": {
-    "publicDockerImageRepository": {
-      "type": [
-        "string", 
-        "null"
-      ], 
-      "description": "PublicDockerImageRepository represents the public location from where the image can be pulled outside the cluster. This field may be empty if the administrator has not exposed the integrated registry externally."
-    }, 
     "dockerImageRepository": {
+      "description": "DockerImageRepository represents the effective location this stream may be accessed at. May be empty until the server determines where the repository is located",
       "type": [
-        "string", 
+        "string",
         "null"
-      ], 
-      "description": "DockerImageRepository represents the effective location this stream may be accessed at. May be empty until the server determines where the repository is located"
-    }, 
+      ]
+    },
+    "publicDockerImageRepository": {
+      "description": "PublicDockerImageRepository represents the public location from where the image can be pulled outside the cluster. This field may be empty if the administrator has not exposed the integrated registry externally.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
     "tags": {
-      "items": {
-        "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.image.apis.image.v1.NamedTagEventList"
-      }, 
+      "description": "Tags are a historical record of images associated with each tag. The first entry in the TagEvent array is the currently tagged image.",
       "type": [
-        "array", 
+        "array",
         "null"
-      ], 
-      "description": "Tags are a historical record of images associated with each tag. The first entry in the TagEvent array is the currently tagged image."
+      ],
+      "items": {
+        "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.api.image.v1.NamedTagEventList"
+      },
+      "x-kubernetes-patch-merge-key": "tag",
+      "x-kubernetes-patch-strategy": "merge"
     }
-  }
+  },
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
 }

@@ -1,18 +1,18 @@
 {
-  "$schema": "http://json-schema.org/schema#", 
-  "type": "object", 
-  "description": "WebHookTrigger is a trigger that gets invoked using a webhook type of post", 
+  "description": "WebHookTrigger is a trigger that gets invoked using a webhook type of post",
   "properties": {
     "allowEnv": {
-      "type": "boolean", 
-      "description": "allowEnv determines whether the webhook can set environment variables; can only be set to true for GenericWebHook."
-    }, 
+      "description": "allowEnv determines whether the webhook can set environment variables; can only be set to true for GenericWebHook.",
+      "type": "boolean"
+    },
     "secret": {
+      "description": "secret used to validate requests.",
       "type": [
-        "string", 
+        "string",
         "null"
-      ], 
-      "description": "secret used to validate requests."
+      ]
     }
-  }
+  },
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
 }

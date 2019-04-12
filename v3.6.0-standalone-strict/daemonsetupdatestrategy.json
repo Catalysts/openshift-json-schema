@@ -1,32 +1,33 @@
 {
-  "$schema": "http://json-schema.org/schema#", 
-  "type": "object", 
   "properties": {
     "rollingUpdate": {
-      "additionalProperties": false, 
-      "description": "Spec to control the desired behavior of daemon set rolling update.", 
+      "description": "Spec to control the desired behavior of daemon set rolling update.",
       "properties": {
         "maxUnavailable": {
           "oneOf": [
             {
               "type": [
-                "string", 
+                "string",
                 "null"
               ]
-            }, 
+            },
             {
               "type": "integer"
             }
           ]
         }
-      }
-    }, 
+      },
+      "additionalProperties": false
+    },
     "type": {
+      "description": "Type of daemon set update. Can be \"RollingUpdate\" or \"OnDelete\". Default is OnDelete.",
       "type": [
-        "string", 
+        "string",
         "null"
-      ], 
-      "description": "Type of daemon set update. Can be \"RollingUpdate\" or \"OnDelete\". Default is OnDelete."
+      ]
     }
-  }
+  },
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
 }

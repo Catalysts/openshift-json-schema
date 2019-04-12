@@ -1,27 +1,27 @@
 {
-  "$schema": "http://json-schema.org/schema#", 
+  "description": "DeploymentDetails captures information about the causes of a deployment.",
   "required": [
     "causes"
-  ], 
-  "type": "object", 
-  "description": "DeploymentDetails captures information about the causes of a deployment.", 
+  ],
   "properties": {
-    "message": {
-      "type": [
-        "string", 
-        "null"
-      ], 
-      "description": "Message is the user specified change message, if this deployment was triggered manually by the user"
-    }, 
     "causes": {
+      "description": "Causes are extended data associated with all the causes for creating a new deployment",
+      "type": [
+        "array",
+        "null"
+      ],
       "items": {
         "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.deploy.apis.apps.v1.DeploymentCause"
-      }, 
+      }
+    },
+    "message": {
+      "description": "Message is the user specified change message, if this deployment was triggered manually by the user",
       "type": [
-        "array", 
+        "string",
         "null"
-      ], 
-      "description": "Causes are extended data associated with all the causes for creating a new deployment"
+      ]
     }
-  }
+  },
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
 }

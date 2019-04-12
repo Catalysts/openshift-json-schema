@@ -1,58 +1,58 @@
 {
-  "description": "DeploymentConfigRollback provides the input to rollback generation.", 
+  "description": "DeploymentConfigRollback provides the input to rollback generation.",
   "required": [
-    "name", 
+    "name",
     "spec"
-  ], 
-  "x-kubernetes-group-version-kind": [
-    {
-      "Kind": "DeploymentConfigRollback", 
-      "Version": "v1", 
-      "Group": ""
-    }, 
-    {
-      "Kind": "DeploymentConfigRollback", 
-      "Version": "v1", 
-      "Group": "apps.openshift.io"
-    }
-  ], 
-  "$schema": "http://json-schema.org/schema#", 
-  "type": "object", 
+  ],
   "properties": {
-    "kind": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources",
       "type": [
-        "string", 
+        "string",
         "null"
-      ], 
-      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
-    }, 
+      ]
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "name": {
+      "description": "Name of the deployment config that will be rolled back.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "spec": {
+      "description": "Spec defines the options to rollback generation.",
+      "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.deploy.apis.apps.v1.DeploymentConfigRollbackSpec"
+    },
     "updatedAnnotations": {
+      "description": "UpdatedAnnotations is a set of new annotations that will be added in the deployment config.",
+      "type": "object",
       "additionalProperties": {
         "type": [
-          "string", 
+          "string",
           "null"
         ]
-      }, 
-      "type": "object", 
-      "description": "UpdatedAnnotations is a set of new annotations that will be added in the deployment config."
-    }, 
-    "name": {
-      "type": [
-        "string", 
-        "null"
-      ], 
-      "description": "Name of the deployment config that will be rolled back."
-    }, 
-    "apiVersion": {
-      "type": [
-        "string", 
-        "null"
-      ], 
-      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources"
-    }, 
-    "spec": {
-      "description": "Spec defines the options to rollback generation.", 
-      "$ref": "_definitions.json#/definitions/com.github.openshift.origin.pkg.deploy.apis.apps.v1.DeploymentConfigRollbackSpec"
+      }
     }
-  }
+  },
+  "x-kubernetes-group-version-kind": [
+    {
+      "Group": "",
+      "Version": "v1",
+      "Kind": "DeploymentConfigRollback"
+    },
+    {
+      "Group": "apps.openshift.io",
+      "Version": "v1",
+      "Kind": "DeploymentConfigRollback"
+    }
+  ],
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
 }

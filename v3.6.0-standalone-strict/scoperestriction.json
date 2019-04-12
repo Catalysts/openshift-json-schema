@@ -1,55 +1,56 @@
 {
-  "$schema": "http://json-schema.org/schema#", 
-  "type": "object", 
-  "description": "ScopeRestriction describe one restriction on scopes.  Exactly one option must be non-nil.", 
+  "description": "ScopeRestriction describe one restriction on scopes.  Exactly one option must be non-nil.",
   "properties": {
+    "clusterRole": {
+      "description": "ClusterRoleScopeRestriction describes restrictions on cluster role scopes",
+      "required": [
+        "roleNames",
+        "namespaces",
+        "allowEscalation"
+      ],
+      "properties": {
+        "allowEscalation": {
+          "description": "AllowEscalation indicates whether you can request roles and their escalating resources",
+          "type": "boolean"
+        },
+        "namespaces": {
+          "description": "Namespaces is the list of namespaces that can be referenced.  * means any of them (including *)",
+          "type": "array",
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "roleNames": {
+          "description": "RoleNames is the list of cluster roles that can referenced.  * means anything",
+          "type": "array",
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      },
+      "additionalProperties": false
+    },
     "literals": {
+      "description": "ExactValues means the scope has to match a particular set of strings exactly",
+      "type": [
+        "array",
+        "null"
+      ],
       "items": {
         "type": [
-          "string", 
+          "string",
           "null"
         ]
-      }, 
-      "type": [
-        "array", 
-        "null"
-      ], 
-      "description": "ExactValues means the scope has to match a particular set of strings exactly"
-    }, 
-    "clusterRole": {
-      "additionalProperties": false, 
-      "required": [
-        "roleNames", 
-        "namespaces", 
-        "allowEscalation"
-      ], 
-      "description": "ClusterRoleScopeRestriction describes restrictions on cluster role scopes", 
-      "properties": {
-        "roleNames": {
-          "items": {
-            "type": [
-              "string", 
-              "null"
-            ]
-          }, 
-          "type": "array", 
-          "description": "RoleNames is the list of cluster roles that can referenced.  * means anything"
-        }, 
-        "allowEscalation": {
-          "type": "boolean", 
-          "description": "AllowEscalation indicates whether you can request roles and their escalating resources"
-        }, 
-        "namespaces": {
-          "items": {
-            "type": [
-              "string", 
-              "null"
-            ]
-          }, 
-          "type": "array", 
-          "description": "Namespaces is the list of namespaces that can be referenced.  * means any of them (including *)"
-        }
       }
     }
-  }
+  },
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
 }

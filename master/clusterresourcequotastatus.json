@@ -1,25 +1,25 @@
 {
-  "$schema": "http://json-schema.org/schema#", 
+  "description": "ClusterResourceQuotaStatus defines the actual enforced quota and its current usage",
   "required": [
-    "total", 
+    "total",
     "namespaces"
-  ], 
-  "type": "object", 
-  "description": "ClusterResourceQuotaStatus defines the actual enforced quota and its current usage", 
+  ],
   "properties": {
-    "total": {
-      "description": "Total defines the actual enforced quota and its current usage across all projects", 
-      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/io.k8s.kubernetes.pkg.api.v1.ResourceQuotaStatus"
-    }, 
     "namespaces": {
-      "items": {
-        "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.origin.pkg.quota.apis.quota.v1.ResourceQuotaStatusByNamespace"
-      }, 
+      "description": "Namespaces slices the usage by project.  This division allows for quick resolution of deletion reconciliation inside of a single project without requiring a recalculation across all projects.  This can be used to pull the deltas for a given project.",
       "type": [
-        "array", 
+        "array",
         "null"
-      ], 
-      "description": "Namespaces slices the usage by project.  This division allows for quick resolution of deletion reconciliation inside of a single project without requiring a recalculation across all projects.  This can be used to pull the deltas for a given project."
+      ],
+      "items": {
+        "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/com.github.openshift.api.quota.v1.ResourceQuotaStatusByNamespace"
+      }
+    },
+    "total": {
+      "description": "Total defines the actual enforced quota and its current usage across all projects",
+      "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/io.k8s.api.core.v1.ResourceQuotaStatus"
     }
-  }
+  },
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
 }

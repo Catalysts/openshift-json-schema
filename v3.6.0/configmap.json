@@ -1,42 +1,42 @@
 {
-  "x-kubernetes-group-version-kind": [
-    {
-      "Kind": "ConfigMap", 
-      "Version": "v1", 
-      "Group": ""
-    }
-  ], 
-  "$schema": "http://json-schema.org/schema#", 
-  "type": "object", 
-  "description": "ConfigMap holds configuration data for pods to consume.", 
+  "description": "ConfigMap holds configuration data for pods to consume.",
   "properties": {
-    "kind": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources",
       "type": [
-        "string", 
+        "string",
         "null"
-      ], 
-      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
-    }, 
+      ]
+    },
     "data": {
+      "description": "Data contains the configuration data. Each key must be a valid DNS_SUBDOMAIN with an optional leading dot.",
+      "type": "object",
       "additionalProperties": {
         "type": [
-          "string", 
+          "string",
           "null"
         ]
-      }, 
-      "type": "object", 
-      "description": "Data contains the configuration data. Each key must be a valid DNS_SUBDOMAIN with an optional leading dot."
-    }, 
-    "apiVersion": {
+      }
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds",
       "type": [
-        "string", 
+        "string",
         "null"
-      ], 
-      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources"
-    }, 
+      ]
+    },
     "metadata": {
-      "description": "Standard object's metadata. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata", 
+      "description": "Standard object's metadata. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata",
       "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v3.6.0/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
     }
-  }
+  },
+  "x-kubernetes-group-version-kind": [
+    {
+      "Group": "",
+      "Version": "v1",
+      "Kind": "ConfigMap"
+    }
+  ],
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
 }

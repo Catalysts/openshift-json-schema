@@ -1,38 +1,38 @@
 {
-  "$schema": "http://json-schema.org/schema#", 
+  "description": "NamedTagEventList relates a tag to its image history.",
   "required": [
-    "tag", 
+    "tag",
     "items"
-  ], 
-  "type": "object", 
-  "description": "NamedTagEventList relates a tag to its image history.", 
+  ],
   "properties": {
-    "items": {
-      "items": {
-        "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v3.6.0/_definitions.json#/definitions/com.github.openshift.origin.pkg.image.apis.image.v1.TagEvent"
-      }, 
-      "type": [
-        "array", 
-        "null"
-      ], 
-      "description": "Standard object's metadata."
-    }, 
-    "tag": {
-      "type": [
-        "string", 
-        "null"
-      ], 
-      "description": "Tag is the tag for which the history is recorded"
-    }, 
     "conditions": {
+      "description": "Conditions is an array of conditions that apply to the tag event list.",
+      "type": [
+        "array",
+        "null"
+      ],
       "items": {
         "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v3.6.0/_definitions.json#/definitions/com.github.openshift.origin.pkg.image.apis.image.v1.TagEventCondition"
-      }, 
+      }
+    },
+    "items": {
+      "description": "Standard object's metadata.",
       "type": [
-        "array", 
+        "array",
         "null"
-      ], 
-      "description": "Conditions is an array of conditions that apply to the tag event list."
+      ],
+      "items": {
+        "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/v3.6.0/_definitions.json#/definitions/com.github.openshift.origin.pkg.image.apis.image.v1.TagEvent"
+      }
+    },
+    "tag": {
+      "description": "Tag is the tag for which the history is recorded",
+      "type": [
+        "string",
+        "null"
+      ]
     }
-  }
+  },
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
 }

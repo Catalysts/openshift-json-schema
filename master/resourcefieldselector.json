@@ -1,28 +1,28 @@
 {
-  "$schema": "http://json-schema.org/schema#", 
+  "description": "ResourceFieldSelector represents container resources (cpu, memory) and their output format",
   "required": [
     "resource"
-  ], 
-  "type": "object", 
-  "description": "ResourceFieldSelector represents container resources (cpu, memory) and their output format", 
+  ],
   "properties": {
     "containerName": {
+      "description": "Container name: required for volumes, optional for env vars",
       "type": [
-        "string", 
+        "string",
         "null"
-      ], 
-      "description": "Container name: required for volumes, optional for env vars"
-    }, 
-    "resource": {
-      "type": [
-        "string", 
-        "null"
-      ], 
-      "description": "Required: resource to select"
-    }, 
+      ]
+    },
     "divisor": {
-      "description": "Specifies the output format of the exposed resources, defaults to \"1\"", 
+      "description": "Specifies the output format of the exposed resources, defaults to \"1\"",
       "$ref": "https://raw.githubusercontent.com/garethr/openshift-json-schema/master/master/_definitions.json#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity"
+    },
+    "resource": {
+      "description": "Required: resource to select",
+      "type": [
+        "string",
+        "null"
+      ]
     }
-  }
+  },
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
 }

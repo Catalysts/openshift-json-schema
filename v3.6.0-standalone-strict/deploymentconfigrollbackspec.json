@@ -1,90 +1,91 @@
 {
-  "$schema": "http://json-schema.org/schema#", 
+  "description": "DeploymentConfigRollbackSpec represents the options for rollback generation.",
   "required": [
-    "from", 
-    "includeTriggers", 
-    "includeTemplate", 
-    "includeReplicationMeta", 
+    "from",
+    "includeTriggers",
+    "includeTemplate",
+    "includeReplicationMeta",
     "includeStrategy"
-  ], 
-  "type": "object", 
-  "description": "DeploymentConfigRollbackSpec represents the options for rollback generation.", 
+  ],
   "properties": {
-    "includeReplicationMeta": {
-      "type": "boolean", 
-      "description": "IncludeReplicationMeta specifies whether to include the replica count and selector."
-    }, 
     "from": {
-      "additionalProperties": false, 
-      "description": "ObjectReference contains enough information to let you inspect or modify the referred object.", 
+      "description": "ObjectReference contains enough information to let you inspect or modify the referred object.",
       "properties": {
-        "kind": {
-          "type": [
-            "string", 
-            "null"
-          ], 
-          "description": "Kind of the referent. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds"
-        }, 
-        "name": {
-          "type": [
-            "string", 
-            "null"
-          ], 
-          "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
-        }, 
-        "namespace": {
-          "type": [
-            "string", 
-            "null"
-          ], 
-          "description": "Namespace of the referent. More info: http://kubernetes.io/docs/user-guide/namespaces"
-        }, 
         "apiVersion": {
+          "description": "API version of the referent.",
           "type": [
-            "string", 
+            "string",
             "null"
-          ], 
-          "description": "API version of the referent."
-        }, 
+          ]
+        },
         "fieldPath": {
+          "description": "If referring to a piece of an object instead of an entire object, this string should contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2]. For example, if the object reference is to a container within a pod, this would take on a value like: \"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered the event) or if no container name is specified \"spec.containers[2]\" (container with index 2 in this pod). This syntax is chosen only to have some well-defined way of referencing a part of an object.",
           "type": [
-            "string", 
+            "string",
             "null"
-          ], 
-          "description": "If referring to a piece of an object instead of an entire object, this string should contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2]. For example, if the object reference is to a container within a pod, this would take on a value like: \"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered the event) or if no container name is specified \"spec.containers[2]\" (container with index 2 in this pod). This syntax is chosen only to have some well-defined way of referencing a part of an object."
-        }, 
+          ]
+        },
+        "kind": {
+          "description": "Kind of the referent. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "name": {
+          "description": "Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "namespace": {
+          "description": "Namespace of the referent. More info: http://kubernetes.io/docs/user-guide/namespaces",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
         "resourceVersion": {
+          "description": "Specific resourceVersion to which this reference is made, if any. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency",
           "type": [
-            "string", 
+            "string",
             "null"
-          ], 
-          "description": "Specific resourceVersion to which this reference is made, if any. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency"
-        }, 
+          ]
+        },
         "uid": {
+          "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids",
           "type": [
-            "string", 
+            "string",
             "null"
-          ], 
-          "description": "UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+          ]
         }
-      }
-    }, 
-    "includeTemplate": {
-      "type": "boolean", 
-      "description": "IncludeTemplate specifies whether to include the PodTemplateSpec."
-    }, 
-    "includeTriggers": {
-      "type": "boolean", 
-      "description": "IncludeTriggers specifies whether to include config Triggers."
-    }, 
+      },
+      "additionalProperties": false
+    },
+    "includeReplicationMeta": {
+      "description": "IncludeReplicationMeta specifies whether to include the replica count and selector.",
+      "type": "boolean"
+    },
     "includeStrategy": {
-      "type": "boolean", 
-      "description": "IncludeStrategy specifies whether to include the deployment Strategy."
-    }, 
+      "description": "IncludeStrategy specifies whether to include the deployment Strategy.",
+      "type": "boolean"
+    },
+    "includeTemplate": {
+      "description": "IncludeTemplate specifies whether to include the PodTemplateSpec.",
+      "type": "boolean"
+    },
+    "includeTriggers": {
+      "description": "IncludeTriggers specifies whether to include config Triggers.",
+      "type": "boolean"
+    },
     "revision": {
-      "type": "integer", 
-      "description": "Revision to rollback to. If set to 0, rollback to the last revision.", 
+      "description": "Revision to rollback to. If set to 0, rollback to the last revision.",
+      "type": "integer",
       "format": "int64"
     }
-  }
+  },
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object"
 }
